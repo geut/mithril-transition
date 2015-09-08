@@ -1,0 +1,46 @@
+{
+  "name": "mithril-transition",
+  "version": "1.0.0",
+  "description": "A lightweight library for MithrilJS to create your own custom transitions based on the lifecycle of your components.",
+  "main": "index.js",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "babel": "^5.8.21",
+    "babel-eslint": "^4.0.5",
+    "babel-tape-runner": "^1.2.0",
+    "eslint": "^1.0.0",
+    "eslint-config-airbnb": "0.0.7",
+    "eslint-plugin-react": "^3.2.0",
+    "tap-spec": "^4.1.0",
+    "tape": "^4.2.0"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "test": "babel-tape-runner \"src/tests/index.js\" | tap-spec",
+    "clean": "rm -rf dist",
+    "build": "npm run clean && babel src --source-maps --out-dir dist --ignore /tests/",
+    "start": "babel src --watch --source-maps --out-dir dist --ignore /tests/",
+    "prepublish": "npm run build",
+    "debug": "iron-node tests/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/geut/mithril-transition.git"
+  },
+  "keywords": [
+    "mithriljs",
+    "css",
+    "velocityjs",
+    "transitions",
+    "animations"
+  ],
+  "author": "Geut <geut.studio@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/geut/mithril-transition/issues"
+  },
+  "homepage": "https://github.com/geut/mithril-transition#readme"
+}

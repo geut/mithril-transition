@@ -113,9 +113,7 @@ export default function Transition(opts = {}) {
         that.history = History(opts.useBrowserHistory);
     }
 
-    const anim = function anim(elem, isInit, ctx) {
+    return function anim(elem, isInit, ctx) {
         that.config(this.attrs.key, elem, isInit, ctx);
     };
-    anim.transitionInstance = that;
-    return anim;
 }

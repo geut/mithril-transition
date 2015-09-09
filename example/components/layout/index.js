@@ -4,10 +4,10 @@ import Transition from '../../mithril-animation/index.js';
 import Velocity from 'velocity-animate';
 import 'velocity-animate/velocity.ui.min';
 
-const trans = Transition({
+const anim = Transition({
     useBrowserHistory: true,
     anim(lastElem, newElem, parent, direction, cbRemove) {
-        const query = '.navbar-brand, .page > .container';
+        const query = '.navbar-brand, .page > .container > *';
         if (direction === 'next') {
             Velocity(
                 lastElem.querySelectorAll(query),
@@ -49,7 +49,7 @@ const trans = Transition({
 
 export default (content, props = {}) => {
     return m('.app.m-transition-content', [
-        m('.page', {key: m.route(), config: trans}, [
+        m('.page', {key: m.route(), config: anim}, [
             navbar(props),
             m('.container', [
                 content

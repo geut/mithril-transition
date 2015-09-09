@@ -30,7 +30,7 @@
     "start": "babel src --watch --source-maps --out-dir dist --ignore /tests/",
     "prepublish": "npm run build",
     "debug": "iron-node tests/index.js",
-    "server": "cd example && node server.js"
+    "example": "cd example && node server.js"
   },
   "repository": {
     "type": "git",

@@ -33,11 +33,12 @@ function History(useBrowserHistory = false) {
 
 export default function Transition(opts = {}) {
     if (!opts.anim) {
-        throw new Error('Error in mithril-transition: option `anim` is required.');
+        throw new Error('Error in mithril-transition: ' +
+        'option `anim` is required.');
     }
     const that = {
         useHistory: opts.useHistory || true,
-        last: null, // {key: '', elem: ''},
+        last: null, // {key: '', elem: ''}
         anim: opts.anim,
         config(key, elem, isInit, ctx) {
             if (!isInit) {
@@ -45,13 +46,18 @@ export default function Transition(opts = {}) {
                 let direction = 'next';
 
                 if (that.useHistory) {
-                    // si la pagina que viene estaba al final de la history la saco
+                    /**
+                     *  if the page that comes it was in the final
+                     *  of the history queue i pop from that
+                     */
                     if (that.history.last() === key) {
-                        // direccion es volver a uno atras
                         direction = 'prev';
                         that.history.pop();
                     } else {
-                        // direccion es ir al proximo, guardo el estado del anterior
+                        /**
+                         *  if direction is go the next i save the state
+                         *  of the last element
+                         */
                         if (that.last) {
                             that.history.push(that.last.key);
                         }
@@ -63,7 +69,8 @@ export default function Transition(opts = {}) {
                     .add('m-transition-' + direction);
 
                 if (that.last) {
-                    parentNode.insertAdjacentElement('beforeend', that.last.elem);
+                    parentNode
+                        .insertAdjacentElement('beforeend', that.last.elem);
 
                     that.anim(
                        that.last.elem,
@@ -85,7 +92,10 @@ export default function Transition(opts = {}) {
                         .classList
                         .add('m-transition-last');
 
-                    // el elemento que se unload se convierte en el ultimo
+                    /**
+                     *  the current element unloaded
+                     *  is going to be the new last
+                     */
                     that.last = {
                         key: key,
                         elem: elem
@@ -102,5 +112,10 @@ export default function Transition(opts = {}) {
     if (that.useHistory) {
         that.history = History(opts.useBrowserHistory);
     }
-    return that;
+
+    const anim = function anim(elem, isInit, ctx) {
+        that.config(this.attrs.key, elem, isInit, ctx);
+    };
+    anim.transitionInstance = that;
+    return anim;
 }

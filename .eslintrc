@@ -11,6 +11,7 @@
       2,
       {"anonymous": "always", "named": "never"}
     ],
-    "comma-dangle": [2, "never"]
+    "comma-dangle": [2, "never"],
+    "new-cap": 0
   }
 }

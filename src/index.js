@@ -37,7 +37,9 @@ export default function Transition(opts = {}) {
         'option `anim` is required.');
     }
     const that = {
-        useHistory: opts.useHistory || true,
+        useHistory: (opts.useHistory !== undefined)
+            ? opts.useHistory
+            : true,
         last: null, // {key: '', elem: ''}
         anim: opts.anim,
         config(key, elem, isInit, ctx) {

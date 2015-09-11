@@ -1,6 +1,6 @@
 import m from 'mithril';
 import navbar from './navbar';
-import Transition from '../../mithril-animation/index.js';
+import Transition from '../../../src/index.js';
 import Velocity from 'velocity-animate';
 import 'velocity-animate/velocity.ui.min';
 

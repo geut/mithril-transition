@@ -3,7 +3,7 @@ function History(useBrowserHistory = false) {
         useBrowserHistory: useBrowserHistory,
         history: useBrowserHistory ? window.history : [],
         push(key) {
-            const obj = {key: key};
+            const obj = {key};
             const that = this;
             if (this.useBrowserHistory) {
                 setTimeout(() => {
@@ -36,6 +36,7 @@ export default function Transition(opts = {}) {
         throw new Error('Error in mithril-transition: ' +
         'option `anim` is required.');
     }
+
     const that = {
         useHistory: (opts.useHistory !== undefined)
             ? opts.useHistory
@@ -43,6 +44,11 @@ export default function Transition(opts = {}) {
         last: null, // {key: '', elem: ''}
         anim: opts.anim,
         config(key, elem, isInit, ctx) {
+            if (!key) {
+                throw new Error('Error in mithril-transition: ' +
+                'is required specified a key for the v-node.');
+            }
+
             if (!isInit) {
                 const parentNode = elem.parentNode;
                 let direction = 'next';
@@ -77,10 +83,14 @@ export default function Transition(opts = {}) {
                     that.anim(
                        that.last.elem,
                        elem,
-                       parentNode,
                        direction,
                        () => {
                            parentNode.removeChild(that.last.elem);
+                       },
+                       () => {
+                           elem
+                               .classList
+                               .remove('m-transition-' + direction);
                        }
                    );
                 }

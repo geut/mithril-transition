@@ -6,14 +6,14 @@ import 'velocity-animate/velocity.ui.min';
 
 const anim = Transition({
     useBrowserHistory: true,
-    anim(lastElem, newElem, parent, direction, cbRemove) {
+    anim(lastElem, newElem, direction, cbLast, cbNew) {
         const query = '.navbar-brand, .page > .container > *';
         if (direction === 'next') {
             Velocity(
                 lastElem.querySelectorAll(query),
                 'transition.slideLeftBigOut',
                 {
-                    complete: cbRemove,
+                    complete: cbLast,
                     stagger: 100
                 }
             );
@@ -22,7 +22,8 @@ const anim = Transition({
                 newElem.querySelectorAll(query),
                 'transition.slideRightBigIn',
                 {
-                    stagger: 100
+                    stagger: 100,
+                    complete: cbNew
                 }
             );
         } else {
@@ -30,7 +31,7 @@ const anim = Transition({
                 lastElem.querySelectorAll(query),
                 'transition.slideRightBigOut',
                 {
-                    complete: cbRemove,
+                    complete: cbLast,
                     stagger: 100
                 }
             );
@@ -39,7 +40,8 @@ const anim = Transition({
                 newElem.querySelectorAll(query),
                 'transition.slideLeftBigIn',
                 {
-                    stagger: 100
+                    stagger: 100,
+                    complete: cbNew
                 }
             );
         }

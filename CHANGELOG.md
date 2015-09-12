@@ -3,7 +3,8 @@
 
 
 * don't capitalize the factory functions, add umd bundles for the browser ([b1e20e8](https://github.com/geut/mithril-transition/commit/b1e20e8))
-
+* rename umd bundle ([7c156d7](https://github.com/geut/mithril-transition/commit/7c156d7))
+* v1.0.2 ([21c0fc4](https://github.com/geut/mithril-transition/commit/21c0fc4))
 
 
 <a name="1.0.0"></a>

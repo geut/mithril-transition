@@ -1,3 +1,11 @@
+<a name="1.0.2"></a>
+## 1.0.2 (2015-09-12)
+
+
+* don't capitalize the factory functions, add umd bundles for the browser ([b1e20e8](https://github.com/geut/mithril-transition/commit/b1e20e8))
+
+
+
 <a name="1.0.0"></a>
 # 1.0.0 (2015-09-11)
 

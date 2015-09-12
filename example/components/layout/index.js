@@ -1,15 +1,15 @@
 import m from 'mithril';
 import navbar from './navbar';
-import Transition from '../../../src/index.js';
-import Velocity from 'velocity-animate';
+import transition from '../../../src/index.js';
+import velocity from 'velocity-animate';
 import 'velocity-animate/velocity.ui.min';
 
-const anim = Transition({
+const anim = transition({
     useBrowserHistory: true,
     anim(lastElem, newElem, direction, cbLast, cbNew) {
         const query = '.navbar-brand, .page > .container > *';
         if (direction === 'next') {
-            Velocity(
+            velocity(
                 lastElem.querySelectorAll(query),
                 'transition.slideLeftBigOut',
                 {
@@ -18,7 +18,7 @@ const anim = Transition({
                 }
             );
 
-            Velocity(
+            velocity(
                 newElem.querySelectorAll(query),
                 'transition.slideRightBigIn',
                 {
@@ -27,7 +27,7 @@ const anim = Transition({
                 }
             );
         } else {
-            Velocity(
+            velocity(
                 lastElem.querySelectorAll(query),
                 'transition.slideRightBigOut',
                 {
@@ -36,7 +36,7 @@ const anim = Transition({
                 }
             );
 
-            Velocity(
+            velocity(
                 newElem.querySelectorAll(query),
                 'transition.slideLeftBigIn',
                 {

@@ -21,16 +21,18 @@
     "velocity-animate": "^1.2.2"
   },
   "files": [
-    "dist"
+    "dist/index.js",
+    "dist/index.js.map"
   ],
   "scripts": {
     "test": "babel-tape-runner \"src/tests/index.js\" | tap-spec",
     "clean": "rm -rf dist",
-    "build": "npm run clean && babel src --source-maps --out-dir dist --ignore /tests/",
-    "start": "babel src --watch --source-maps --out-dir dist --ignore /tests/",
+    "build": "npm run clean && babel src --source-maps --out-dir dist --standalone --ignore /tests/ && npm run standalone",
+    "start": "babel src --watch --source-maps --out-dir dist --standalone --ignore /tests/",
     "prepublish": "npm run build",
     "debug": "iron-node tests/index.js",
-    "example": "cd example && node server.js"
+    "example": "cd example && node server.js",
+    "standalone": "browserify dist/index.js --standalone mithrilTransition | uglifyjs > dist/mithril-transition.umd.js"
   },
   "repository": {
     "type": "git",

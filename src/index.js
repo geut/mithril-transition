@@ -1,4 +1,4 @@
-function History(useBrowserHistory = false) {
+function history(useBrowserHistory = false) {
     return {
         useBrowserHistory: useBrowserHistory,
         history: useBrowserHistory ? window.history : [],
@@ -73,7 +73,7 @@ function unloadStyles(barrier, parentNode, elem) {
 }
 
 function config(key, elem, isInit, ctx) {
-    if (!key) {
+    if (this.useHistory && !key) {
         throw new Error('Error in mithril-transition: ' +
             'is required specified a key for the v-node.');
     }
@@ -151,7 +151,7 @@ function config(key, elem, isInit, ctx) {
         };
     }
 }
-export default function Transition({
+export default function transition({
     anim = null,
         useHistory = true,
         useBrowserHistory = false,
@@ -184,7 +184,7 @@ export default function Transition({
     };
 
     if (that.useHistory) {
-        that.history = History(useBrowserHistory);
+        that.history = history(useBrowserHistory);
     }
 
     return function animate(elem, isInit, ctx) {

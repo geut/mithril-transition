@@ -153,20 +153,20 @@ function config(key, elem, isInit, ctx) {
 }
 export default function transition({
     anim = null,
-        useHistory = true,
-        useBrowserHistory = false,
-        styleParent = {
-            width: '100%',
-            height: '100%',
-            overflow: 'hidden'
-        },
-        styleElement = {
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%'
-        }
+    useHistory = true,
+    useBrowserHistory = false,
+    styleParent = {
+        width: '100%',
+        height: '100%',
+        overflow: 'hidden'
+    },
+    styleElement = {
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%'
+    }
 } = {}) {
     if (!anim) {
         throw new Error('Error in mithril-transition: ' +

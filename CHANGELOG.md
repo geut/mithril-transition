@@ -1,3 +1,11 @@
+<a name="1.0.4"></a>
+## 1.0.4 (2015-09-15)
+
+
+* split styleElement in two options styleLastElement and styleNewElement ([9222e2e](https://github.com/geut/mithril-transition/commit/9222e2e))
+
+
+
 <a name="1.0.3"></a>
 ## 1.0.3 (2015-09-15)
 

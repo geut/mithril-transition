@@ -51,9 +51,11 @@ function loadStyles(parentNode, elem) {
     if (this.styleParent) {
         appendStyles(parentNode, this.styleParent);
     }
-    if (this.styleElement) {
-        appendStyles(this.last.elem, this.styleElement);
-        appendStyles(elem, this.styleElement);
+    if (this.styleLastElement) {
+        appendStyles(this.last.elem, this.styleLastElement);
+    }
+    if (this.styleNewElement) {
+        appendStyles(elem, this.styleNewElement);
     }
 }
 
@@ -65,9 +67,14 @@ function unloadStyles(barrier, parentNode, elem) {
     if (this.styleParent) {
         removeStyles(parentNode, this.styleParent);
     }
-    if (this.styleElement) {
-        removeStyles(this.last.elem, this.styleElement);
-        removeStyles(elem, this.styleElement);
+
+    /**
+     * is not necesary unload the style of the last element because
+     * is going remove it.
+     */
+
+    if (this.styleNewElement) {
+        removeStyles(elem, this.styleNewElement);
     }
     return newBarrier;
 }
@@ -151,6 +158,14 @@ function config(key, elem, isInit, ctx) {
         };
     }
 }
+
+const defaultStyleElements = {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%'
+};
 export default function transition({
     anim = null,
     useHistory = true,
@@ -160,13 +175,8 @@ export default function transition({
         height: '100%',
         overflow: 'hidden'
     },
-    styleElement = {
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        width: '100%',
-        height: '100%'
-    }
+    styleLastElement = defaultStyleElements,
+    styleNewElement = defaultStyleElements
 } = {}) {
     if (!anim) {
         throw new Error('Error in mithril-transition: ' +
@@ -178,7 +188,8 @@ export default function transition({
         anim,
         config,
         styleParent,
-        styleElement,
+        styleLastElement,
+        styleNewElement,
         loadStyles,
         unloadStyles
     };

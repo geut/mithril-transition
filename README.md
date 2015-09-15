@@ -47,8 +47,20 @@ default = {
 }
 ```
 
-#### styleElement
-When the transition begins the library set a style in both elements (last and new) and remove it when the transition is finished. You can customize this styles of even disable setting in false the option.
+#### styleLastElement
+When the transition begins the library set a style in the **new** element and remove it when the transition is finished. You can customize this styles of even disable setting in false the option.
+```javascript
+default = {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%'
+}
+```
+
+#### styleNewElement
+When the transition begins the library set a style in the **new** element and remove it when the transition is finished. You can customize this styles of even disable setting in false the option.
 ```javascript
 default = {
     position: 'absolute',

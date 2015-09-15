@@ -1,3 +1,11 @@
+<a name="1.0.3"></a>
+## 1.0.3 (2015-09-15)
+
+
+* update readme, fix indentation in index.js ([9d16337](https://github.com/geut/mithril-transition/commit/9d16337))
+
+
+
 <a name="1.0.2"></a>
 ## 1.0.2 (2015-09-12)
 

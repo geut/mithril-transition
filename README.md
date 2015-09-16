@@ -25,10 +25,15 @@ Or you can use the UMD bundle
 Callback function where you define the animation for the next/prev component.
 
 The callback has the next parameters:
+
 **lastElem**: The last DOM element that is removing.
+
 **newElem**: The new DOM element that is inserting.
+
 **direction**: This option allow to you define differents animations based of next/prev direction of the lifecycle components. Is required has at least ```useHistory``` in true.
+
 **cbLast**: Callback to complete the remove of the lastElem. (is required call it)
+
 **cbNew**: Callback to complete the insert of the newElem. (is required call it)
 
 #### useHistory (default = true)
@@ -38,7 +43,7 @@ When is enabled the library keep the history of your components, to know if the 
 This option enable the history function to work with the ```window.history```.
 
 #### styleParent
-When the transition begins the library set a style in the parent element and remove it when the transition is finished. You can customize this styles of even disable setting in false the option.
+Before that the transition begin, the library set a style in the parent element and remove it when the transition is finished. You can customize this styles of even disable setting in false the option.
 ```javascript
 default = {
     width: '100%',
@@ -48,7 +53,7 @@ default = {
 ```
 
 #### styleLastElement
-When the transition begins the library set a style in the **new** element and remove it when the transition is finished. You can customize this styles of even disable setting in false the option.
+Before that the transition begin, the library set a style in the **new** element and remove it when the transition is finished. You can customize this styles of even disable setting in false the option.
 ```javascript
 default = {
     position: 'absolute',
@@ -60,7 +65,7 @@ default = {
 ```
 
 #### styleNewElement
-When the transition begins the library set a style in the **new** element and remove it when the transition is finished. You can customize this styles of even disable setting in false the option.
+Before that the transition begin, the library set a style in the **new** element and remove it when the transition is finished. You can customize this styles of even disable setting in false the option.
 ```javascript
 default = {
     position: 'absolute',

@@ -39,8 +39,8 @@ The callback has the next parameters:
 #### useHistory (default = true)
 When is enabled the library keep the history of your components, to know if the next element in the transition is really the next element or a prev element.
 
-#### useBrowserHistory (default = false)
-This option enable the history function to work with the ```window.history```.
+#### persistHistoryAs ({string} default = undefined)
+Save the history in the sessionStorage identified by a key.
 
 #### styleParent
 Before that the transition begin, the library set a style in the parent element and remove it when the transition is finished. You can customize this styles of even disable setting in false the option.

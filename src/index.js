@@ -1,31 +1,27 @@
-function history(useBrowserHistory = false) {
+function persistHistory(persistHistoryAs, history) {
+    sessionStorage.setItem(persistHistoryAs, JSON.stringify(history));
+}
+function createHistory(persistHistoryAs = false) {
+    let history = [];
+    if (persistHistoryAs) {
+        if (sessionStorage.getItem(persistHistoryAs)) {
+            history = JSON.parse(sessionStorage.getItem(persistHistoryAs));
+        }
+    }
     return {
-        useBrowserHistory: useBrowserHistory,
-        history: useBrowserHistory ? window.history : [],
+        persistHistoryAs: persistHistoryAs,
+        history,
         push(key) {
-            const obj = {
-                key
-            };
-            const that = this;
-            if (this.useBrowserHistory) {
-                setTimeout(() => {
-                    that.history.pushState(obj, key);
-                }, 16);
-            } else {
-                this.history.push(obj);
-            }
+            this.history.push(key);
+            persistHistory(this.persistHistoryAs, this.history);
         },
         pop() {
-            if (!this.useBrowserHistory) {
-                this.history.pop();
-            }
+            this.history.pop();
+            persistHistory(this.persistHistoryAs, this.history);
         },
         last() {
-            if (this.useBrowserHistory) {
-                return this.history.state ? this.history.state.key : undefined;
-            }
             return this.history[this.history.length - 1]
-                ? this.history[this.history.length - 1].key
+                ? this.history[this.history.length - 1]
                 : undefined;
         }
     };
@@ -123,7 +119,7 @@ function config(key, elem, isInit, ctx) {
                 this.last.elem,
                 elem,
                 direction, () => {
-                    parentNode.removeChild(this.last.elem);
+                    this.last.elem.remove();
                     barrier = this.unloadStyles(barrier, parentNode, elem);
                 }, () => {
                     elem
@@ -169,7 +165,7 @@ const defaultStyleElements = {
 export default function transition({
     anim = null,
     useHistory = true,
-    useBrowserHistory = false,
+    persistHistoryAs = false,
     styleParent = {
         width: '100%',
         height: '100%',
@@ -195,7 +191,7 @@ export default function transition({
     };
 
     if (that.useHistory) {
-        that.history = history(useBrowserHistory);
+        that.history = createHistory(persistHistoryAs);
     }
 
     return function animate(elem, isInit, ctx) {

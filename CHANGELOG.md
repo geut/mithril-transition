@@ -1,3 +1,12 @@
+<a name="1.1.0"></a>
+# 1.1.0 (2015-09-19)
+
+
+* replace pushStates by persist history using sessionStorage ([2d55d91](https://github.com/geut/mithril-transition/commit/2d55d91))
+* update readme ([92b1cda](https://github.com/geut/mithril-transition/commit/92b1cda))
+
+
+
 <a name="1.0.4"></a>
 ## 1.0.4 (2015-09-15)
 

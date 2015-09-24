@@ -1,24 +1,24 @@
 import m from 'mithril';
 import layout from './layout';
 
-const PageTwo = {
+const PageThree = {
     controller() {
         return {
-            title: m.prop('Page Two')
+            title: m.prop('Page Three')
         };
     },
     view(ctrl) {
         return layout([
-            m('h1', 'Testing the page two'),
-            m('.panel.panel-danger', [
+            m('h1', 'Testing the page three'),
+            m('.panel.panel-success', [
                 m('.panel-heading', [
-                    m('h3.panel-title', 'Panel page two')
+                    m('h3.panel-title', 'Panel page three')
                 ]),
                 m('.panel-body', [
                     m(
-                        'a.btn.btn-danger[href=/pageThree]',
+                        'a.btn.btn-success[href=/pageOne]',
                         {config: m.route},
-                        'Go to page three'
+                        'Go to page one'
                     )
                 ])
             ])
@@ -28,4 +28,4 @@ const PageTwo = {
     }
 };
 
-export default PageTwo;
+export default PageThree;

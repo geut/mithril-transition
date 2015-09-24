@@ -43,12 +43,12 @@ function removeStyles(element, styles) {
     }
 }
 
-function loadStyles(parentNode, elem) {
+function loadStyles(lastElem, elem) {
     if (this.styleParent) {
-        appendStyles(parentNode, this.styleParent);
+        appendStyles(elem.parentNode, this.styleParent);
     }
     if (this.styleLastElement) {
-        appendStyles(this.last.elem, this.styleLastElement);
+        appendStyles(lastElem, this.styleLastElement);
     }
     if (this.styleNewElement) {
         appendStyles(elem, this.styleNewElement);
@@ -109,17 +109,18 @@ function config(key, elem, isInit, ctx) {
             .add('m-transition-' + direction);
 
         if (this.last) {
-            this.loadStyles(parentNode, elem);
+            const lastElem = this.last.elem;
+            this.loadStyles(lastElem, elem);
 
             parentNode
-                .insertAdjacentElement('beforeend', this.last.elem);
+                .insertAdjacentElement('beforeend', lastElem);
 
             let barrier = 2;
             this.anim(
-                this.last.elem,
+                lastElem,
                 elem,
                 direction, () => {
-                    this.last.elem.remove();
+                    lastElem.remove();
                     barrier = this.unloadStyles(barrier, parentNode, elem);
                 }, () => {
                     elem

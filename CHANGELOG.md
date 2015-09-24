@@ -1,3 +1,11 @@
+<a name="1.1.2"></a>
+## 1.1.2 (2015-09-24)
+
+
+* third page for the example, fix minor issue with the lastElem ([6220055](https://github.com/geut/mithril-transition/commit/6220055))
+
+
+
 <a name="1.1.0"></a>
 # 1.1.0 (2015-09-19)
 

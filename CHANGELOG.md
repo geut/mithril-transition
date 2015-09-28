@@ -1,3 +1,11 @@
+<a name="2.0.0"></a>
+# 2.0.0 (2015-09-28)
+
+
+* regression in style options. Use class styles to improve perfomance in DOM redraw ([c255071](https://github.com/geut/mithril-transition/commit/c255071))
+
+
+
 <a name="1.1.2"></a>
 ## 1.1.2 (2015-09-24)
 

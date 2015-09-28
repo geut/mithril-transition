@@ -42,37 +42,14 @@ When is enabled the library keep the history of your components, to know if the 
 #### persistHistoryAs ({string} default = undefined)
 Save the history in the sessionStorage identified by a key.
 
-#### styleParent
-Before that the transition begin, the library set a style in the parent element and remove it when the transition is finished. You can customize this styles of even disable setting in false the option.
+#### classList ({object})
+Before that the transition begin, the library set a list of classes for each parent|element and remove it when the transition is finished.
 ```javascript
 default = {
-    width: '100%',
-    height: '100%',
-    overflow: 'hidden'
-}
-```
-
-#### styleLastElement
-Before that the transition begin, the library set a style in the **new** element and remove it when the transition is finished. You can customize this styles of even disable setting in false the option.
-```javascript
-default = {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    width: '100%',
-    height: '100%'
-}
-```
-
-#### styleNewElement
-Before that the transition begin, the library set a style in the **new** element and remove it when the transition is finished. You can customize this styles of even disable setting in false the option.
-```javascript
-default = {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    width: '100%',
-    height: '100%'
+    parent: 'm-transition-parent',
+    lastElem: 'm-transition-last-element',
+    newElem: 'm-transition-new-element',
+    direction: 'm-transition-<direction>'
 }
 ```
 

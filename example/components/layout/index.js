@@ -14,7 +14,6 @@ const anim = transition({
                 'transition.slideLeftBigOut',
                 {
                     complete: cbLast,
-                    duration: 10000,
                     stagger: 100
                 }
             );
@@ -24,7 +23,6 @@ const anim = transition({
                 'transition.slideRightBigIn',
                 {
                     stagger: 100,
-                    duration: 10000,
                     complete: cbNew
                 }
             );
@@ -34,7 +32,6 @@ const anim = transition({
                 'transition.slideRightBigOut',
                 {
                     complete: cbLast,
-                    duration: 10000,
                     stagger: 100
                 }
             );
@@ -44,7 +41,6 @@ const anim = transition({
                 'transition.slideLeftBigIn',
                 {
                     stagger: 100,
-                    duration: 10000,
                     complete: cbNew
                 }
             );

@@ -1,3 +1,11 @@
+<a name="2.0.1"></a>
+## 2.0.1 (2015-09-28)
+
+
+* fix style ([857e6dc](https://github.com/geut/mithril-transition/commit/857e6dc))
+
+
+
 <a name="2.0.0"></a>
 # 2.0.0 (2015-09-28)
 

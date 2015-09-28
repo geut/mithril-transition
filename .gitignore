@@ -28,4 +28,4 @@ build/Release
 
 example/build.js
 
-/dist/index.*
+/dist/index.js*

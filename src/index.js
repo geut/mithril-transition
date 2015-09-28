@@ -1,6 +1,7 @@
 function persistHistory(persistHistoryAs, history) {
     sessionStorage.setItem(persistHistoryAs, JSON.stringify(history));
 }
+
 function createHistory(persistHistoryAs = false) {
     let history = [];
     if (persistHistoryAs) {
@@ -27,51 +28,25 @@ function createHistory(persistHistoryAs = false) {
     };
 }
 
-function appendStyles(element, styles) {
-    for (const attr in styles) {
-        if ({}.hasOwnProperty.call(styles, attr)) {
-            element.style[attr] = styles[attr];
-        }
-    }
+function loadClasses(classList, lastElem, elem, direction) {
+    elem.parentNode.classList.add(classList.parent);
+    lastElem.classList.add(classList.lastElem);
+    elem.classList.add(classList.newElem);
+    elem.classList.add(
+        classList.direction.replace('<direction>', direction)
+    );
 }
 
-function removeStyles(element, styles) {
-    for (const attr in styles) {
-        if ({}.hasOwnProperty.call(styles, attr)) {
-            element.style[attr] = null;
-        }
-    }
-}
-
-function loadStyles(lastElem, elem) {
-    if (this.styleParent) {
-        appendStyles(elem.parentNode, this.styleParent);
-    }
-    if (this.styleLastElement) {
-        appendStyles(lastElem, this.styleLastElement);
-    }
-    if (this.styleNewElement) {
-        appendStyles(elem, this.styleNewElement);
-    }
-}
-
-function unloadStyles(barrier, parentNode, elem) {
+function unloadClasses(classList, barrier, parentNode, elem, direction) {
     const newBarrier = barrier - 1;
     if (newBarrier > 0) {
         return newBarrier;
     }
-    if (this.styleParent) {
-        removeStyles(parentNode, this.styleParent);
-    }
-
-    /**
-     * is not necesary unload the style of the last element because
-     * is going remove it.
-     */
-
-    if (this.styleNewElement) {
-        removeStyles(elem, this.styleNewElement);
-    }
+    elem.classList.remove(classList.newElem);
+    elem.classList.remove(
+        classList.direction.replace('<direction>', direction)
+    );
+    elem.parentNode.classList.remove(classList.parent);
     return newBarrier;
 }
 
@@ -104,13 +79,9 @@ function config(key, elem, isInit, ctx) {
             }
         }
 
-        elem
-            .classList
-            .add('m-transition-' + direction);
-
         if (this.last) {
             const lastElem = this.last.elem;
-            this.loadStyles(lastElem, elem);
+            loadClasses(this.classList, lastElem, elem, direction);
 
             parentNode
                 .insertAdjacentElement('beforeend', lastElem);
@@ -121,25 +92,27 @@ function config(key, elem, isInit, ctx) {
                 elem,
                 direction, () => {
                     lastElem.remove();
-                    barrier = this.unloadStyles(barrier, parentNode, elem);
+                    barrier = unloadClasses(
+                        this.classList,
+                        barrier,
+                        parentNode,
+                        elem,
+                        direction
+                    );
                 }, () => {
-                    elem
-                        .classList
-                        .remove('m-transition-' + direction);
-                    barrier = this.unloadStyles(barrier, parentNode, elem);
+                    barrier = unloadClasses(
+                        this.classList,
+                        barrier,
+                        parentNode,
+                        elem,
+                        direction
+                    );
                 }
             );
         }
 
         const userOnUnload = ctx.onunload;
         ctx.onunload = () => {
-            elem
-                .classList
-                .remove('m-transition-' + direction);
-            elem
-                .classList
-                .add('m-transition-last');
-
             /**
              *  the current element unloaded
              *  is going to be the "new last element"
@@ -156,24 +129,16 @@ function config(key, elem, isInit, ctx) {
     }
 }
 
-const defaultStyleElements = {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    width: '100%',
-    height: '100%'
-};
 export default function transition({
     anim = null,
     useHistory = true,
     persistHistoryAs = false,
-    styleParent = {
-        width: '100%',
-        height: '100%',
-        overflow: 'hidden'
-    },
-    styleLastElement = defaultStyleElements,
-    styleNewElement = defaultStyleElements
+    classList = {
+        parent: 'm-transition-parent',
+        lastElem: 'm-transition-last-element',
+        newElem: 'm-transition-new-element',
+        direction: 'm-transition-<direction>'
+    }
 } = {}) {
     if (!anim) {
         throw new Error('Error in mithril-transition: ' +
@@ -184,11 +149,7 @@ export default function transition({
         useHistory,
         anim,
         config,
-        styleParent,
-        styleLastElement,
-        styleNewElement,
-        loadStyles,
-        unloadStyles
+        classList
     };
 
     if (that.useHistory) {

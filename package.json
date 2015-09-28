@@ -22,12 +22,13 @@
   },
   "files": [
     "dist/index.js",
-    "dist/index.js.map"
+    "dist/index.js.map",
+    "dist/index.css"
   ],
   "scripts": {
     "test": "babel-tape-runner \"src/tests/index.js\" | tap-spec",
     "clean": "rm -rf dist",
-    "build": "npm run clean && babel src --source-maps --out-dir dist --standalone --ignore /tests/ && npm run standalone",
+    "build": "npm run clean && babel src --source-maps --out-dir dist --standalone --ignore /tests/ && npm run standalone && cp src/index.css dist/index.css",
     "start": "babel src --watch --source-maps --out-dir dist --standalone --ignore /tests/",
     "prepublish": "npm run build",
     "debug": "iron-node tests/index.js",

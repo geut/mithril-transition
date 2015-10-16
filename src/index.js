@@ -113,6 +113,7 @@ function config(key, elem, isInit, ctx) {
 
         const userOnUnload = ctx.onunload;
         ctx.onunload = () => {
+            elem.style['pointer-events'] = 'none';
             /**
              *  the current element unloaded
              *  is going to be the "new last element"

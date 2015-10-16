@@ -1,3 +1,11 @@
+<a name="2.0.2"></a>
+## 2.0.2 (2015-10-16)
+
+
+* fix issue #1. Solution: disable pointer events in the last elem ([8bc370c](https://github.com/geut/mithril-transition/commit/8bc370c)), closes [#1](https://github.com/geut/mithril-transition/issues/1)
+
+
+
 <a name="2.0.1"></a>
 ## 2.0.1 (2015-09-28)
 

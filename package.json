@@ -1,6 +1,6 @@
 {
   "name": "mithril-transition",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "A lightweight library for MithrilJS to create your own custom transitions based on the lifecycle of your components.",
   "main": "dist/index.js",
   "dependencies": {},

@@ -17,7 +17,13 @@ Or you can use the UMD bundle
 
 ## How to use it
 
-**mithril-transition** is a function factory that return a ```config``` function for your v-node (where you want animate it) of mithril. The best way is take a look of the [live example](https://t.co/1psrMMUqkT)
+**mithril-transition** is a function factory that return a ```config``` function for your v-node (where you want animate it) of mithril.
+
+Live examples:
+
+- [with VelocityJS](https://t.co/1psrMMUqkT)
+
+- [with pure CSS](https://jsfiddle.net/tinchoz49/ckounhoz)
 
 ## Options
 

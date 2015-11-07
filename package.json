@@ -32,7 +32,7 @@
     "clean": "rm -rf dist",
     "build": "npm run clean && babel src --source-maps --out-dir dist --standalone --ignore /tests/ && npm run standalone && cp src/index.css dist/index.css",
     "start": "babel src --watch --source-maps --out-dir dist --standalone --ignore /tests/",
-    "prepublish": "npm run test && npm run build",
+    "prepublish": "npm run build",
     "version": "conventional-changelog -i CHANGELOG.md --overwrite && git add CHANGELOG.md",
     "debug": "iron-node tests/index.js",
     "example": "cd example && node server.js",

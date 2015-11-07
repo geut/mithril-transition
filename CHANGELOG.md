@@ -1,3 +1,12 @@
+<a name="2.1.0"></a>
+# 2.1.0 (2015-11-07)
+
+
+* add conventional changelog, freeze dependencies, new eslint ([c75a0b6](https://github.com/geut/mithril-transition/commit/c75a0b6))
+* new example using pure css ([e7d67a6](https://github.com/geut/mithril-transition/commit/e7d67a6))
+
+
+
 <a name="2.0.2"></a>
 ## 2.0.2 (2015-10-16)
 

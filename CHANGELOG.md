@@ -1,3 +1,11 @@
+<a name="2.1.1"></a>
+## 2.1.1 (2015-11-07)
+
+
+* fix publish ([f33f346](https://github.com/geut/mithril-transition/commit/f33f346))
+
+
+
 <a name="2.1.0"></a>
 # 2.1.0 (2015-11-07)
 

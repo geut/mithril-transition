@@ -1,3 +1,12 @@
+<a name="2.2.0"></a>
+# 2.2.0 (2015-11-19)
+
+
+* better example, fix error with persistHistoryAs = false ([70b773d](https://github.com/geut/mithril-transition/commit/70b773d))
+* release new standalone ([79ca10c](https://github.com/geut/mithril-transition/commit/79ca10c))
+
+
+
 <a name="2.1.1"></a>
 ## 2.1.1 (2015-11-07)
 

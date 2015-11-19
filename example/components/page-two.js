@@ -16,7 +16,12 @@ const PageTwo = {
                 ]),
                 m('.panel-body', [
                     m(
-                        'a.btn.btn-danger[href=/pageThree]',
+                        'a.btn.btn-primary.pull-left[href=/pageOne]',
+                        {config: m.route},
+                        'Go to page one'
+                    ),
+                    m(
+                        'a.btn.btn-danger.pull-right[href=/pageThree]',
                         {config: m.route},
                         'Go to page three'
                     )

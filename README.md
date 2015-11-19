@@ -45,7 +45,7 @@ The callback has the next parameters:
 #### useHistory (default = true)
 When is enabled the library keep the history of your components, to know if the next element in the transition is really the next element or a prev element.
 
-#### persistHistoryAs ({string} default = undefined)
+#### persistHistoryAs ({string} default = null)
 Save the history in the sessionStorage identified by a key.
 
 #### classList ({object})

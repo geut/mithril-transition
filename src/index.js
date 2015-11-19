@@ -1,8 +1,10 @@
 function persistHistory(persistHistoryAs, history) {
-    sessionStorage.setItem(persistHistoryAs, JSON.stringify(history));
+    if (persistHistoryAs) {
+        sessionStorage.setItem(persistHistoryAs, JSON.stringify(history));
+    }
 }
 
-function createHistory(persistHistoryAs = false) {
+function createHistory(persistHistoryAs = null) {
     let history = [];
     if (persistHistoryAs) {
         if (sessionStorage.getItem(persistHistoryAs)) {
@@ -131,9 +133,9 @@ function config(key, elem, isInit, ctx) {
 }
 
 export default function transition({
-    anim = null,
+    anim,
     useHistory = true,
-    persistHistoryAs = false,
+    persistHistoryAs = null,
     classList = {
         parent: 'm-transition-parent',
         lastElem: 'm-transition-last-element',

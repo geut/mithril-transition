@@ -1,3 +1,12 @@
+<a name="2.2.1"></a>
+## 2.2.1 (2016-02-10)
+
+
+* minor change in package.json ([4e90314](https://github.com/geut/mithril-transition/commit/4e90314))
+* replace insertAdjacentElement for insertAdjacentHTML issue #2 ([d54642b](https://github.com/geut/mithril-transition/commit/d54642b))
+
+
+
 <a name="2.2.0"></a>
 # 2.2.0 (2015-11-19)
 

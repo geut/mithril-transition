@@ -1,3 +1,11 @@
+<a name="2.2.2"></a>
+## 2.2.2 (2016-02-10)
+
+
+* fix scripts npm ([5df1ca3](https://github.com/geut/mithril-transition/commit/5df1ca3))
+
+
+
 <a name="2.2.1"></a>
 ## 2.2.1 (2016-02-10)
 

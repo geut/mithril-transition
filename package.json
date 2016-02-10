@@ -33,7 +33,7 @@
     "build": "npm run clean && babel src --source-maps --out-dir dist --standalone --ignore /tests/ && npm run standalone && cp src/index.css dist/index.css",
     "start": "babel src --watch --source-maps --out-dir dist --standalone --ignore /tests/",
     "prepublish": "npm run build",
-    "version": "conventional-changelog -i CHANGELOG.md --overwrite && git add CHANGELOG.md",
+    "version": "npm run build && conventional-changelog -i CHANGELOG.md --overwrite && git add CHANGELOG.md",
     "debug": "iron-node tests/index.js",
     "example": "cd example && node server.js",
     "standalone": "browserify dist/index.js --standalone mithrilTransition | uglifyjs > dist/mithril-transition.umd.js"

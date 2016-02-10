@@ -48,7 +48,9 @@ function unloadClasses(classList, barrier, parentNode, elem, direction) {
     elem.classList.remove(
         classList.direction.replace('<direction>', direction)
     );
-    elem.parentNode.classList.remove(classList.parent);
+    if (elem.parentNode) {
+        elem.parentNode.classList.remove(classList.parent);
+    }
     return newBarrier;
 }
 
@@ -60,6 +62,7 @@ function config(key, elem, isInit, ctx) {
 
     if (!isInit) {
         const parentNode = elem.parentNode;
+
         let direction = 'next';
 
         if (this.useHistory) {
@@ -82,11 +85,14 @@ function config(key, elem, isInit, ctx) {
         }
 
         if (this.last) {
-            const lastElem = this.last.elem;
+            let lastElem = this.last.elem;
+            const id = 'mithril-transition-' + Date.now();
             loadClasses(this.classList, lastElem, elem, direction);
-
+            lastElem.dataset.transitionId = id;
             parentNode
-                .insertAdjacentElement('beforeend', lastElem);
+                .insertAdjacentHTML('beforeend', lastElem.outerHTML);
+            this.last.elem = lastElem = parentNode
+                .querySelector('[data-transition-id=' + id + ']');
 
             let barrier = 2;
             this.anim(

@@ -1,3 +1,11 @@
+<a name="2.2.3"></a>
+## 2.2.3 (2016-02-11)
+
+
+* fix support for >= IE10 ([67783bf](https://github.com/geut/mithril-transition/commit/67783bf))
+
+
+
 <a name="2.2.2"></a>
 ## 2.2.2 (2016-02-10)
 

@@ -15,7 +15,6 @@ function removeClass(elem, className) {
         + className.split(' ').join('|')
         + '(\\b|$)', 'gi'), ' ');
     }
-
     return elem;
 }
 

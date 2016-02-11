@@ -1,3 +1,12 @@
+<a name="2.2.5"></a>
+## 2.2.5 (2016-02-11)
+
+
+* remove empty space ([c186320](https://github.com/geut/mithril-transition/commit/c186320))
+* use parentNode.remove correctly ([f50ca19](https://github.com/geut/mithril-transition/commit/f50ca19))
+
+
+
 <a name="2.2.4"></a>
 ## 2.2.4 (2016-02-11)
 

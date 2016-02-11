@@ -116,7 +116,7 @@ function config(key, elem, isInit, ctx) {
                 lastElem,
                 elem,
                 direction, () => {
-                    parentNode.removeChild(lastElem);
+                    lastElem.parentNode.removeChild(lastElem);
                     barrier = unloadClasses(
                         this.classList,
                         barrier,

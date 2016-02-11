@@ -1,3 +1,11 @@
+<a name="2.2.4"></a>
+## 2.2.4 (2016-02-11)
+
+
+* add support for >= IE8 using a polyfill for classlist ([2b0a63f](https://github.com/geut/mithril-transition/commit/2b0a63f))
+
+
+
 <a name="2.2.3"></a>
 ## 2.2.3 (2016-02-11)
 

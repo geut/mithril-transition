@@ -1,3 +1,24 @@
+function addClass(elem, className) {
+    if (elem.classList) {
+        elem.classList.add(className);
+    } else {
+        elem.className += ' ' + className;
+    }
+    return elem;
+}
+
+function removeClass(elem, className) {
+    if (elem.classList) {
+        elem.classList.remove(className);
+    } else {
+        elem.className = elem.className.replace(new RegExp('(^|\\b)'
+        + className.split(' ').join('|')
+        + '(\\b|$)', 'gi'), ' ');
+    }
+
+    return elem;
+}
+
 function persistHistory(persistHistoryAs, history) {
     if (persistHistoryAs) {
         sessionStorage.setItem(persistHistoryAs, JSON.stringify(history));
@@ -31,12 +52,10 @@ function createHistory(persistHistoryAs = null) {
 }
 
 function loadClasses(classList, lastElem, elem, direction) {
-    elem.parentNode.classList.add(classList.parent);
-    lastElem.classList.add(classList.lastElem);
-    elem.classList.add(classList.newElem);
-    elem.classList.add(
-        classList.direction.replace('<direction>', direction)
-    );
+    addClass(elem.parentNode, classList.parent);
+    addClass(lastElem, classList.lastElem);
+    addClass(elem, classList.newElem);
+    addClass(elem, classList.direction.replace('<direction>', direction));
 }
 
 function unloadClasses(classList, barrier, parentNode, elem, direction) {
@@ -44,12 +63,11 @@ function unloadClasses(classList, barrier, parentNode, elem, direction) {
     if (newBarrier > 0) {
         return newBarrier;
     }
-    elem.classList.remove(classList.newElem);
-    elem.classList.remove(
-        classList.direction.replace('<direction>', direction)
-    );
+    removeClass(elem, classList.newElem);
+    removeClass(elem, classList.direction.replace('<direction>', direction));
+
     if (elem.parentNode) {
-        elem.parentNode.classList.remove(classList.parent);
+        removeClass(elem.parentNode, classList.parent);
     }
     return newBarrier;
 }

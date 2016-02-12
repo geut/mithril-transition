@@ -105,7 +105,7 @@ function config(key, elem, isInit, ctx) {
             let lastElem = this.last.elem;
             const id = 'mithril-transition-' + Date.now();
             loadClasses(this.classList, lastElem, elem, direction);
-            lastElem.dataset.transitionId = id;
+            lastElem.setAttribute('data-transition-id', id);
             parentNode
                 .insertAdjacentHTML('beforeend', lastElem.outerHTML);
             this.last.elem = lastElem = parentNode

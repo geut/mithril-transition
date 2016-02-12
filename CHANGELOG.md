@@ -1,3 +1,11 @@
+<a name="2.2.6"></a>
+## 2.2.6 (2016-02-12)
+
+
+* replace dataset for setAttribute ([7bd7b2e](https://github.com/geut/mithril-transition/commit/7bd7b2e))
+
+
+
 <a name="2.2.5"></a>
 ## 2.2.5 (2016-02-11)
 

@@ -1,3 +1,13 @@
+<a name="2.3.1"></a>
+## 2.3.1 (2016-02-20)
+
+
+* route.mode hash in example ([9cc9b24](https://github.com/geut/mithril-transition/commit/9cc9b24))
+* update conventional changelog ([1143559](https://github.com/geut/mithril-transition/commit/1143559))
+* update dependencies, improve package.json ([800bcb2](https://github.com/geut/mithril-transition/commit/800bcb2))
+
+
+
 <a name="2.2.6"></a>
 ## 2.2.6 (2016-02-12)
 

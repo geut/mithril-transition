@@ -11,9 +11,9 @@ function removeClass(elem, className) {
     if (elem.classList) {
         elem.classList.remove(className);
     } else {
-        elem.className = elem.className.replace(new RegExp('(^|\\b)'
-        + className.split(' ').join('|')
-        + '(\\b|$)', 'gi'), ' ');
+        elem.className = elem.className.replace(new RegExp('(^|\\b)' +
+        className.split(' ').join('|') +
+        '(\\b|$)', 'gi'), ' ');
     }
     return elem;
 }
@@ -32,7 +32,7 @@ function createHistory(persistHistoryAs = null) {
         }
     }
     return {
-        persistHistoryAs: persistHistoryAs,
+        persistHistoryAs,
         history,
         push(key) {
             this.history.push(key);
@@ -43,9 +43,9 @@ function createHistory(persistHistoryAs = null) {
             persistHistory(this.persistHistoryAs, this.history);
         },
         last() {
-            return this.history[this.history.length - 1]
-                ? this.history[this.history.length - 1]
-                : undefined;
+            return this.history[this.history.length - 1] ?
+                this.history[this.history.length - 1] :
+                undefined;
         }
     };
 }
@@ -90,14 +90,12 @@ function config(key, elem, isInit, ctx) {
             if (this.history.last() === key) {
                 direction = 'prev';
                 this.history.pop();
-            } else {
+            } else if (this.last) {
                 /**
                  *  if direction is go the next i save the state
                  *  of the last element
                  */
-                if (this.last) {
-                    this.history.push(this.last.key);
-                }
+                this.history.push(this.last.key);
             }
         }
 
@@ -144,8 +142,8 @@ function config(key, elem, isInit, ctx) {
              *  is going to be the "new last element"
              */
             this.last = {
-                key: key,
-                elem: elem
+                key,
+                elem
             };
 
             if (userOnUnload) {

@@ -17,12 +17,12 @@ const PageThree = {
                 m('.panel-body', [
                     m(
                         'a.btn.btn-danger.pull-left[href=/pageTwo]',
-                        {config: m.route},
+                        { config: m.route },
                         'Go to page two'
                     ),
                     m(
                         'a.btn.btn-success.pull-right[href=/pageOne]',
-                        {config: m.route},
+                        { config: m.route },
                         'Go to page one'
                     )
                 ])

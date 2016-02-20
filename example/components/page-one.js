@@ -17,7 +17,7 @@ const PageOne = {
                 m('.panel-body', [
                     m(
                         'a.btn.btn-primary.pull-right[href=/pageTwo]',
-                        {config: m.route},
+                        { config: m.route },
                         'Go to page two'
                     )
                 ])

@@ -1,6 +1,6 @@
 {
   "name": "mithril-transition",
-  "version": "2.2.6",
+  "version": "2.3.0",
   "description": "A lightweight library for MithrilJS to create your own custom transitions based on the lifecycle of your components.",
   "main": "dist/index.js",
   "devDependencies": {
@@ -8,7 +8,7 @@
     "babel-preset-es2015": "^6.5.0",
     "babelify": "~7.2.0",
     "browserify": "~13.0.0",
-    "conventional-changelog": "~1.1.0",
+    "conventional-changelog-cli": "^1.1.1",
     "eslint": "^2.2.0",
     "eslint-config-tinchoz49": "^2.0.1",
     "iron-node": "^2.2.15",
@@ -27,7 +27,7 @@
     "start": "npm run clean && watchify example/index.js -o example/build.js -v & live-server example",
     "prepublish": "npm run build",
     "preversion": "npm run build",
-    "version": "conventional-changelog -i CHANGELOG.md --overwrite && git add .",
+    "version": "conventional-changelog -i CHANGELOG.md --same-file && git add .",
     "debug": "iron-node npm start",
     "standalone": "browserify src/index.js --standalone mithrilTransition | uglifyjs > dist/mithril-transition.umd.js"
   },

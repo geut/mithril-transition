@@ -9,7 +9,7 @@
     "babelify": "~7.2.0",
     "browserify": "~13.0.0",
     "conventional-changelog-cli": "^1.1.1",
-    "eslint": "^2.2.0",
+    "eslint": "^2.5.1",
     "eslint-config-tinchoz49": "^2.0.1",
     "iron-node": "^2.2.15",
     "live-server": "^0.9.2",
@@ -23,6 +23,7 @@
   ],
   "scripts": {
     "clean": "rm -rf dist && mkdir dist",
+    "test": "eslint src",
     "build": "eslint src && npm run clean && browserify src/index.js -o dist/index.js && npm run standalone && cp src/index.css dist/index.css",
     "start": "npm run clean && watchify example/index.js -o example/build.js -v & live-server example",
     "prepublish": "npm run build",

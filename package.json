@@ -23,6 +23,7 @@
   ],
   "scripts": {
     "clean": "rm -rf dist && mkdir dist",
+    "test": "eslint src",
     "build": "eslint src && npm run clean && browserify src/index.js -o dist/index.js && npm run standalone && cp src/index.css dist/index.css",
     "start": "npm run clean && watchify example/index.js -o example/build.js -v & live-server example",
     "prepublish": "npm run build",

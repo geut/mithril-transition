@@ -1,5 +1,6 @@
 # mithril-transition
-A lightweight library for MithrilJS to create your own custom transitions based on the lifecycle of your components.
+[![Build Status](https://travis-ci.org/geut/mithril-transition.svg?branch=master)](https://travis-ci.org/geut/mithril-transition)
+> A lightweight library for MithrilJS to create your own custom transitions based on the lifecycle of your components.
 
 ## Install
 
@@ -61,7 +62,7 @@ default = {
 
 ## On roadmap
 
-nothing for now :)
+- Add tests
 
 ## Credits
 

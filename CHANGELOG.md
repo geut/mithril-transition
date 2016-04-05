@@ -1,3 +1,18 @@
+<a name="2.4.0"></a>
+# 2.4.0 (2016-04-05)
+
+
+### chore
+
+* chore(package): update eslint to version 2.5.1 ([8236052](https://github.com/geut/mithril-transition/commit/8236052))
+* chore(package): update iron-node to version 2.2.16 ([540c5fd](https://github.com/geut/mithril-transition/commit/540c5fd))
+
+* add travis ([2a1fd31](https://github.com/geut/mithril-transition/commit/2a1fd31))
+* fix build es6 ([c7a0765](https://github.com/geut/mithril-transition/commit/c7a0765))
+* fix missing uglify dependency ([66968f0](https://github.com/geut/mithril-transition/commit/66968f0))
+
+
+
 <a name="2.3.1"></a>
 ## 2.3.1 (2016-02-20)
 

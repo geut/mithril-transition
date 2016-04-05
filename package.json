@@ -4,6 +4,7 @@
   "description": "A lightweight library for MithrilJS to create your own custom transitions based on the lifecycle of your components.",
   "main": "dist/index.js",
   "devDependencies": {
+    "babel-cli": "^6.6.5",
     "babel-plugin-add-module-exports": "^0.1.2",
     "babel-preset-es2015": "^6.5.0",
     "babelify": "~7.2.0",
@@ -25,13 +26,15 @@
   "scripts": {
     "clean": "rm -rf dist && mkdir dist",
     "test": "eslint src",
-    "build": "eslint src && npm run clean && browserify src/index.js -o dist/index.js && npm run standalone && cp src/index.css dist/index.css",
-    "start": "npm run clean && watchify example/index.js -o example/build.js -v & live-server example",
+    "build:assets": "cp src/index.css dist/index.css",
+    "build:babel": "babel src -d dist",
+    "build:standalone": "browserify src/index.js --standalone mithrilTransition | uglifyjs > dist/mithril-transition.umd.js",
+    "build": "npm test && npm run clean && npm run build:babel && npm run build:standalone && npm run build:assets",
+    "start": "npm run build && watchify example/index.js -o example/build.js -v & npm run build:babel -- --watch & live-server example",
     "prepublish": "npm run build",
     "preversion": "npm run build",
     "version": "conventional-changelog -i CHANGELOG.md --same-file && git add .",
-    "debug": "iron-node npm start",
-    "standalone": "browserify src/index.js --standalone mithrilTransition | uglifyjs > dist/mithril-transition.umd.js"
+    "debug": "iron-node npm start"
   },
   "eslintConfig": {
     "extends": "tinchoz49",
@@ -39,6 +42,15 @@
       "sessionStorage": true,
       "document": true
     }
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ],
+    "plugins": [
+      "transform-object-assign",
+      "add-module-exports"
+    ]
   },
   "browserify": {
     "transform": [

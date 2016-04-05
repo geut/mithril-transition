@@ -1,6 +1,6 @@
 import m from 'mithril';
 import navbar from './navbar';
-import transition from '../../../src/index.js';
+import transition from '../../../dist/index.js';
 import velocity from 'velocity-animate';
 import 'velocity-animate/velocity.ui.min';
 
@@ -51,7 +51,7 @@ const anim = transition({
 
 export default (content, props = {}) => {
     return m('.app', [
-        m('.page', {key: m.route(), config: anim}, [
+        m('.page', { key: m.route(), config: anim }, [
             navbar(props),
             m('.container', [
                 content

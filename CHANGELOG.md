@@ -1,3 +1,11 @@
+<a name="2.4.1"></a>
+## 2.4.1 (2016-04-05)
+
+
+* delete transform-object-assign ([834f4c5](https://github.com/geut/mithril-transition/commit/834f4c5))
+
+
+
 <a name="2.4.0"></a>
 # 2.4.0 (2016-04-05)
 

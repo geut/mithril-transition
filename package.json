@@ -48,7 +48,6 @@
       "es2015"
     ],
     "plugins": [
-      "transform-object-assign",
       "add-module-exports"
     ]
   },

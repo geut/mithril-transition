@@ -1,3 +1,5 @@
+const enabled = Symbol('enabled');
+
 function addClass(elem, className) {
     if (elem.classList) {
         elem.classList.add(className);
@@ -18,9 +20,15 @@ function removeClass(elem, className) {
     return elem;
 }
 
-function persistHistory(persistHistoryAs, history) {
-    if (persistHistoryAs) {
-        sessionStorage.setItem(persistHistoryAs, JSON.stringify(history));
+function persistHistory(key, history) {
+    if (key) {
+        sessionStorage.setItem(key, JSON.stringify(history));
+    }
+}
+
+function clearHistory(key) {
+    if (key) {
+        sessionStorage.removeItem(key);
     }
 }
 
@@ -41,6 +49,10 @@ function createHistory(persistHistoryAs = null) {
         pop() {
             this.history.pop();
             persistHistory(this.persistHistoryAs, this.history);
+        },
+        clear() {
+            this.history = [];
+            clearHistory(this.persistHistoryAs);
         },
         last() {
             return this.history[this.history.length - 1] ?
@@ -77,7 +89,7 @@ function config(key, elem, isInit, ctx) {
             'is required specified a key for the v-node.');
     }
 
-    if (!isInit) {
+    if (!isInit && this.isEnabled()) {
         const parentNode = elem.parentNode;
 
         let direction = 'next';
@@ -153,6 +165,7 @@ function config(key, elem, isInit, ctx) {
     }
 }
 
+
 export default function transition({
     anim,
     useHistory = true,
@@ -162,25 +175,42 @@ export default function transition({
         lastElem: 'm-transition-last-element',
         newElem: 'm-transition-new-element',
         direction: 'm-transition-<direction>'
-    }
+    },
+    disable = function () {}
 } = {}) {
     if (!anim) {
         throw new Error('Error in mithril-transition: ' +
             'option `anim` is required.');
     }
 
+
     const that = {
         useHistory,
         anim,
         config,
-        classList
+        classList,
+        [enabled]: true,
+        isEnabled() {
+            return that[enabled];
+        },
+        enable() {
+            that[enabled] = true;
+        },
+        disable() {
+            disable();
+            that[enabled] = false;
+        }
     };
 
     if (that.useHistory) {
         that.history = createHistory(persistHistoryAs);
     }
 
-    return function animate(elem, isInit, ctx) {
+    const animate = function animate(elem, isInit, ctx) {
         that.config(this.attrs.key, elem, isInit, ctx);
     };
+    animate.isEnabled = that.isEnabled;
+    animate.enable = that.enable;
+    animate.disable = that.disable;
+    return animate;
 }

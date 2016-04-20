@@ -50,6 +50,7 @@ const anim = transition({
 });
 
 export default (content, props = {}) => {
+    props.anim = anim;
     return m('.app', [
         m('.page', { key: m.route(), config: anim }, [
             navbar(props),

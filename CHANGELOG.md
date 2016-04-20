@@ -1,3 +1,13 @@
+<a name="3.0.0"></a>
+# 3.0.0 (2016-04-20)
+
+* fix eslint ([c8a6229](https://github.com/geut/mithril-transition/commit/c8a6229))
+* new feature: enable and disable transition ([e36dcc5](https://github.com/geut/mithril-transition/commit/e36dcc5))
+* new umd version ([10ccf92](https://github.com/geut/mithril-transition/commit/10ccf92))
+* remove iron-node as dependency ([ebd6bd5](https://github.com/geut/mithril-transition/commit/ebd6bd5))
+
+
+
 <a name="2.4.1"></a>
 ## 2.4.1 (2016-04-05)
 

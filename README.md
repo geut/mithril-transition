@@ -26,6 +26,17 @@ Live examples:
 
 - [with pure CSS](https://jsfiddle.net/tinchoz49/ckounhoz)
 
+## Functions
+
+#### transition(options = {}) -> {animate}
+Factory function to create a new transition. The options are defined below.
+
+#### animate.enable()
+Method to start the animation. **By default is enabled.**
+
+#### animate.disable()
+Method to disable the animation.
+
 ## Options
 
 #### anim (required)
@@ -37,7 +48,7 @@ The callback has the next parameters:
 
 **newElem**: The new DOM element that is inserting.
 
-**direction**: This option allow to you define differents animations based of next/prev direction of the lifecycle components. Is required has at least ```useHistory``` in true.
+**direction**: This option allow to you define differents animations based of next/prev direction of the lifecycle components. Is required have at least ```useHistory``` in true.
 
 **cbLast**: Callback to complete the remove of the lastElem. (is required call it)
 

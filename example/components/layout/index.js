@@ -6,7 +6,8 @@ import 'velocity-animate/velocity.ui.min';
 
 const anim = transition({
     persistHistoryAs: 'appHistory',
-    anim(lastElem, newElem, direction, cbLast, cbNew) {
+    anim(lastElem, newElem, direction, cbLast, cbNew, dataState) {
+        console.log(dataState);
         const query = '.navbar-brand, .page > .container > *';
         if (direction === 'next') {
             velocity(

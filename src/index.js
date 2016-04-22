@@ -91,6 +91,20 @@ function config(key, elem, isInit, ctx) {
 
     if (!isInit && this.isEnabled()) {
         const parentNode = elem.parentNode;
+        const dataState = {
+            parent: {
+                height: parentNode.offsetHeight,
+                width: parentNode.offsetWidth
+            },
+            lastElem: {
+                height: this.last ? this.last.state.height : null,
+                width: this.last ? this.last.state.width : null
+            },
+            newElem: {
+                height: elem.offsetHeight,
+                width: elem.offsetWidth
+            }
+        };
 
         let direction = 'next';
 
@@ -142,7 +156,8 @@ function config(key, elem, isInit, ctx) {
                         elem,
                         direction
                     );
-                }
+                },
+                dataState
             );
         }
 
@@ -155,7 +170,11 @@ function config(key, elem, isInit, ctx) {
              */
             this.last = {
                 key,
-                elem
+                elem,
+                state: {
+                    height: dataState.newElem.height,
+                    width: dataState.newElem.width
+                }
             };
 
             if (userOnUnload) {

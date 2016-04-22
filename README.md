@@ -54,6 +54,8 @@ The callback has the next parameters:
 
 **cbNew**: Callback to complete the insert of the newElem. (is required call it)
 
+**dataState**: It will give you a state of special DOM properties (height, width) from the parent, lastElem and newElem
+
 #### useHistory (default = true)
 When is enabled the library keep the history of your components, to know if the next element in the transition is really the next element or a prev element.
 

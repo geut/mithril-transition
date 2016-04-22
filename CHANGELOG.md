@@ -1,3 +1,11 @@
+<a name="3.1.0"></a>
+# 3.1.0 (2016-04-22)
+
+* add new info to the readme ([def6a4d](https://github.com/geut/mithril-transition/commit/def6a4d))
+* new feature: dataState ([cd4fad2](https://github.com/geut/mithril-transition/commit/cd4fad2))
+
+
+
 <a name="3.0.0"></a>
 # 3.0.0 (2016-04-20)
 

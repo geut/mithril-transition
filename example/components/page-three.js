@@ -1,13 +1,11 @@
-import m from 'mithril';
-import layout from './layout';
+const m = require('mithril');
+const layout = require('./layout');
 
 const PageThree = {
-    controller() {
-        return {
-            title: m.prop('Page Three')
-        };
+    controller(vnode) {
+        vnode.state.title = 'Page Three';
     },
-    view(ctrl) {
+    view(vnode) {
         return layout([
             m('h1', 'Testing the page three'),
             m('.panel.panel-success', [
@@ -17,20 +15,20 @@ const PageThree = {
                 m('.panel-body', [
                     m(
                         'a.btn.btn-danger.pull-left[href=/pageTwo]',
-                        { config: m.route },
+                        { oncreate: m.route.link },
                         'Go to page two'
                     ),
                     m(
-                        'a.btn.btn-success.pull-right[href=/pageOne]',
-                        { config: m.route },
+                        'a.btn.btn-primary.pull-right[href=/pageOne]',
+                        { oncreate: m.route.link },
                         'Go to page one'
                     )
                 ])
             ])
         ], {
-            title: ctrl.title()
+            title: vnode.state.title
         });
     }
 };
 
-export default PageThree;
+module.exports = PageThree;

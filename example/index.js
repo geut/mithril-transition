@@ -1,9 +1,9 @@
-import m from 'mithril';
-import PageOne from './components/page-one.js';
-import PageTwo from './components/page-two.js';
-import PageThree from './components/page-three.js';
+const m = require('mithril');
+const PageOne = require('./components/page-one.js');
+const PageTwo = require('./components/page-two.js');
+const PageThree = require('./components/page-three.js');
 
-m.route.mode = 'hash';
+//m.route.prefix('hash');
 
 m.route(document.body, '/pageOne', {
     '/pageOne': PageOne,

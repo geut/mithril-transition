@@ -2,6 +2,10 @@
 [![Build Status](https://travis-ci.org/geut/mithril-transition.svg?branch=master)](https://travis-ci.org/geut/mithril-transition)
 > A lightweight library for MithrilJS to create your own custom transitions based on the lifecycle of your components.
 
+**NOTE:** This package was updated for the rewrite of Mithril, if you are looking
+for the old and unmaintained package can be found it
+[here](https://github.com/geut/mithril-transition/tree/v0.2)
+
 ## Install
 
 With [npm](https://npmjs.com/package/mithril-transition) and [browserify](https://www.npmjs.com/package/browserify)/[webpack](https://www.npmjs.com/package/webpack) do:
@@ -18,7 +22,7 @@ Or you can use the UMD bundle
 
 ## How to use it
 
-**mithril-transition** is a function factory that return a ```config``` function for your v-node (where you want animate it) of mithril.
+**mithril-transition** is a function factory that return a ```config``` function for your vnode (where you want animate it) of mithril.
 
 Live examples:
 
@@ -32,7 +36,7 @@ Live examples:
 Factory function to create a new transition. The options are defined below.
 
 #### animate.enable()
-Method to start the animation. **By default is enabled.**
+Method to enable the animation. **By default is enabled.**
 
 #### animate.disable()
 Method to disable the animation.
@@ -44,17 +48,15 @@ Callback function where you define the animation for the next/prev component.
 
 The callback has the next parameters:
 
-**lastElem**: The last DOM element that is removing.
+**lastElm**: The last DOM element that is removing.
 
-**newElem**: The new DOM element that is inserting.
+**newElm**: The new DOM element that is inserting.
 
 **direction**: This option allow to you define differents animations based of next/prev direction of the lifecycle components. Is required have at least ```useHistory``` in true.
 
-**cbLast**: Callback to complete the remove of the lastElem. (is required call it)
+**cbLast**: Callback to complete the remove of the lastElm. (is required call it)
 
-**cbNew**: Callback to complete the insert of the newElem. (is required call it)
-
-**dataState**: It will give you a state of special DOM properties (height, width) from the parent, lastElem and newElem
+**cbNew**: Callback to complete the insert of the newElm. (is required call it)
 
 #### useHistory (default = true)
 When is enabled the library keep the history of your components, to know if the next element in the transition is really the next element or a prev element.
@@ -66,10 +68,10 @@ Save the history in the sessionStorage identified by a key.
 Before that the transition begin, the library set a list of classes for each parent|element and remove it when the transition is finished.
 ```javascript
 default = {
-    parent: 'm-transition-parent',
-    lastElem: 'm-transition-last-element',
-    newElem: 'm-transition-new-element',
-    direction: 'm-transition-<direction>'
+parent: 'm-transition-parent',
+        lastElem: 'm-transition-last-element',
+        newElem: 'm-transition-new-element',
+        direction: 'm-transition-<direction>'
 }
 ```
 

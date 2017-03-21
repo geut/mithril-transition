@@ -32,31 +32,31 @@ Live examples:
 
 ## Functions
 
-#### transition(options = {}) -> {animate}
+#### createTransition(options = {}) -> {transition}
 Factory function to create a new transition. The options are defined below.
 
-#### animate.enable()
+#### transition.enable()
 Method to enable the animation. **By default is enabled.**
 
-#### animate.disable()
+#### transition.disable()
 Method to disable the animation.
 
 ## Options
 
-#### anim (required)
+#### animation (required)
 Callback function where you define the animation for the next/prev component.
 
-The callback has the next parameters:
+The callback has an object argument {} with the next properties:
 
 **lastElm**: The last DOM element that is removing.
 
-**newElm**: The new DOM element that is inserting.
+**nextElm**: The new DOM element that is inserting.
 
 **direction**: This option allow to you define differents animations based of next/prev direction of the lifecycle components. Is required have at least ```useHistory``` in true.
 
 **cbLast**: Callback to complete the remove of the lastElm. (is required call it)
 
-**cbNew**: Callback to complete the insert of the newElm. (is required call it)
+**cbNext**: Callback to complete the insert of the nextElm. (is required call it)
 
 #### useHistory (default = true)
 When is enabled the library keep the history of your components, to know if the next element in the transition is really the next element or a prev element.

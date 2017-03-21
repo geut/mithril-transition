@@ -27,6 +27,9 @@
     "extends": "postcss",
     "env": {
       "browser": true
+    },
+    "rules": {
+      "max-len": 0
     }
   },
   "repository": {

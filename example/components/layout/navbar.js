@@ -7,19 +7,19 @@ module.exports = (props = {}) => {
                 m('a.navbar-brand', props.title)
             ]),
             m('.collapse navbar-collapse', [
-                //m(
-                    //'button.btn.btn-default.navbar-btn',
-                    //{
-                        //onclick() {
-                            //if ( props.anim.isEnabled() ) {
-                                //props.anim.disable();
-                            //} else {
-                                //props.anim.enable();
-                            //}
-                        //}
-                    //},
-                    //props.anim.isEnabled() ? 'Disable' : 'Enable'
-                //)
+                m(
+                    'button.btn.btn-default.navbar-btn',
+                    {
+                        onclick() {
+                            if ( props.transition.isEnabled() ) {
+                                props.transition.disable();
+                            } else {
+                                props.transition.enable();
+                            }
+                        }
+                    },
+                    props.transition.isEnabled() ? 'Disable' : 'Enable'
+                )
             ])
         ])
     ]);

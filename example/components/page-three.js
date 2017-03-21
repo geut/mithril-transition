@@ -2,7 +2,7 @@ const m = require('mithril');
 const layout = require('./layout');
 
 const PageThree = {
-    controller(vnode) {
+    oninit(vnode) {
         vnode.state.title = 'Page Three';
     },
     view(vnode) {

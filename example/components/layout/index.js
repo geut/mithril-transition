@@ -1,51 +1,22 @@
 const m = require('mithril');
 const navbar = require('./navbar');
 const createTransition = require('../../../src/index.js');
-const velocity = require('velocity-animate');
-require('velocity-animate/velocity.ui.min');
-
+const animationend = require('animationend');
 const transition = createTransition({
     persistHistoryAs: 'appHistory',
     animation({ lastElm, nextElm, direction, cbLast, cbNext }) {
-        const query = '.navbar-brand, .page > .container > *';
+        animationend(lastElm, cbLast);
+        animationend(nextElm, () => {
+            nextElm.classList.remove('pt-page-moveFromRight', 'pt-page-moveFromLeft');
+        	cbNext();
+        });
         if (direction === 'next') {
-            velocity(
-                lastElm.querySelectorAll(query),
-                'transition.slideLeftBigOut',
-                {
-                    complete: cbLast,
-                    stagger: 100
-                }
-            );
-
-            velocity(
-                nextElm.querySelectorAll(query),
-                'transition.slideRightBigIn',
-                {
-                    stagger: 100,
-                    complete: cbNext
-                }
-            );
+            lastElm.classList.add('pt-page-moveToLeft');
+        	nextElm.classList.add('pt-page-moveFromRight');
         } else {
-            velocity(
-                lastElm.querySelectorAll(query),
-                'transition.slideRightBigOut',
-                {
-                    complete: cbLast,
-                    stagger: 100
-                }
-            );
-
-            velocity(
-                nextElm.querySelectorAll(query),
-                'transition.slideLeftBigIn',
-                {
-                    stagger: 100,
-                    complete: cbNext
-                }
-            );
+            lastElm.classList.add('pt-page-moveToRight');
+        	nextElm.classList.add('pt-page-moveFromLeft');
         }
-        return false;
     }
 });
 

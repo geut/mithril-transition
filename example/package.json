@@ -10,6 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "velocity-animate": "^1.4.3"
+    "animationend": "0.0.1"
   }
 }

@@ -14,12 +14,12 @@ const PageThree = {
                 ]),
                 m('.panel-body', [
                     m(
-                        'a.btn.btn-danger.pull-left[href=/pageTwo]',
+                        'a#goto-page-two.btn.btn-danger.pull-left[href=/pageTwo]',
                         { oncreate: m.route.link },
                         'Go to page two'
                     ),
                     m(
-                        'a.btn.btn-primary.pull-right[href=/pageOne]',
+                        'a#goto-page-one.btn.btn-primary.pull-right[href=/pageOne]',
                         { oncreate: m.route.link },
                         'Go to page one'
                     )

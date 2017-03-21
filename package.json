@@ -4,31 +4,48 @@
   "description": "A lightweight library for MithrilJS to create your own custom transitions based on the lifecycle of your components.",
   "main": "src/index.js",
   "devDependencies": {
+    "ava": "^0.18.2",
     "babili": "0.0.12",
     "browserify": "^14.1.0",
     "budo": "^9.4.7",
     "eslint": "^3.18.0",
     "eslint-config-postcss": "^2.0.2",
-    "mithril": "^1.0.1"
+    "http-server": "^0.9.0",
+    "mithril": "^1.0.1",
+    "testcafe": "^0.13.0",
+    "testcafe-browser-provider-saucelabs": "^1.1.0"
   },
   "scripts": {
     "clean": "rm -rf dist && mkdir dist",
-    "test": "eslint src",
+    "test": "npm run test:browser",
+    "test:browser": "testcafe \"saucelabs:Chrome@48.0:Linux\",\"saucelabs:Firefox@45.0:Linux\" tests/browser/index.js --speed 0.5",
+    "test:local-browser": "URL=http://localhost:4445 testcafe chrome,firefox --app \"npm run build:example && npm run example:serve\" --speed 0.5",
+    "posttest": "eslint .",
+    "build:example": "browserify example/index.js -o example/build.js",
     "build:assets": "cp src/index.css dist/index.css",
     "build:standalone": "browserify --standalone mithrilTransition src/index.js -o dist/mithril-transition.js && babili dist/mithril-transition.js -o dist/mithril-transition.min.js --source-maps",
     "build": "npm test && npm run clean && npm run build:standalone && npm run build:assets",
-    "start": "budo example/index.js --dir example --live --open",
+    "start": "budo example/index.js:build.js --dir example --live --open",
+    "example:serve": "http-server example -s -p 4445",
     "prepublish": "npm run build",
     "preversion": "npm run build",
-    "version": "chan release ${npm_package_version} && git add ."
+    "version": "chan release ${npm_package_version} && git add .",
+    "je": "testcafe -b saucelabs"
   },
   "eslintConfig": {
     "extends": "postcss",
+    "parserOptions": {
+      "ecmaVersion": 2017
+    },
     "env": {
       "browser": true
     },
     "rules": {
       "max-len": 0
+    },
+    "globals": {
+      "fixture": true,
+      "test": true
     }
   },
   "repository": {

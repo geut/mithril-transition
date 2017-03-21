@@ -14,7 +14,7 @@ const PageOne = {
                 ]),
                 m('.panel-body', [
                     m(
-                        'a.btn.btn-danger.pull-right[href=/pageTwo]',
+                        'a#goto-page-two.btn.btn-danger.pull-right[href=/pageTwo]',
                         { oncreate: m.route.link },
                         'Go to page two'
                     )

@@ -9,8 +9,7 @@
     "eslint": "^3.18.0",
     "eslint-config-postcss": "^2.0.2",
     "mithril": "^1.0.1",
-    "uglifyjs": "^2.4.10",
-    "velocity-animate": "^1.4.3"
+    "uglifyjs": "^2.4.10"
   },
   "scripts": {
     "clean": "rm -rf dist && mkdir dist",

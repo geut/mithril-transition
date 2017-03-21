@@ -4,18 +4,18 @@
   "description": "A lightweight library for MithrilJS to create your own custom transitions based on the lifecycle of your components.",
   "main": "src/index.js",
   "devDependencies": {
+    "babili": "0.0.12",
     "browserify": "^14.1.0",
     "budo": "^9.4.7",
     "eslint": "^3.18.0",
     "eslint-config-postcss": "^2.0.2",
-    "mithril": "^1.0.1",
-    "uglifyjs": "^2.4.10"
+    "mithril": "^1.0.1"
   },
   "scripts": {
     "clean": "rm -rf dist && mkdir dist",
     "test": "eslint src",
     "build:assets": "cp src/index.css dist/index.css",
-    "build:standalone": "browserify src/index.js --standalone mithrilTransition | uglifyjs > dist/mithril-transition.umd.js",
+    "build:standalone": "browserify --standalone mithrilTransition src/index.js -o dist/mithril-transition.js && babili dist/mithril-transition.js -o dist/mithril-transition.min.js --source-maps",
     "build": "npm test && npm run clean && npm run build:standalone && npm run build:assets",
     "start": "budo example/index.js --dir example --live --open",
     "prepublish": "npm run build",

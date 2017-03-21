@@ -17,7 +17,7 @@ npm install --save mithril-transition
 Or you can use the UMD bundle
 
 ```html
-<script src="/lib/mithril-transition/dist/mithril-transition.umd.js" type="text/javascript"></script>
+<script src="/lib/mithril-transition/dist/mithril-transition.min.js" type="text/javascript"></script>
 ```
 
 ## How to use it

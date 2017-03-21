@@ -15,5 +15,5 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - Last release of the old mithril-transition!
 
-[unreleased]: https://github.com/geut/postcss-copy/compare/v3.1.0...HEAD
-[3.1.0]: https://github.com/geut/postcss-copy/compare/v3.0.0...v3.1.0
+[unreleased]: https://github.com/geut/mithril-transition/compare/v3.1.0...HEAD
+[3.1.0]: https://github.com/geut/mithril-transition/compare/v3.0.0...v3.1.0

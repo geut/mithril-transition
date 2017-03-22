@@ -5,11 +5,15 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Added
+- new end-to-end tests
+
 ### Changed
 - ES2015 modules to CommonJS
 - example to work with Mithril v1
 - source code to work with Mithril v1
 - refactory code
+- example to work with CSS transitions
 
 ## [3.1.0] - 2016-04-22
 ### Added

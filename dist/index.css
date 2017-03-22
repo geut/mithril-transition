@@ -4,7 +4,7 @@
     overflow: hidden;
 }
 
-.m-transition-last-element, .m-transition-new-element {
+.m-transition-last-element, .m-transition-next-element {
     position: absolute;
     top: 0;
     left: 0;

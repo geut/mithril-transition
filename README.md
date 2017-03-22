@@ -22,7 +22,7 @@ Or you can use the UMD bundle
 
 ## How to use it
 
-**mithril-transition** is a function factory that return an `object` with a `oncreate` and `onremove` hooks to add in the vnode lifecycle (where you want animate it) of mithril.
+**mithril-transition** is a function factory that return an `object` with an `oncreate` and `onremove` hooks to add in the vnode lifecycle (where you want animate it) of mithril.
 
 Check our live **[example](https://geut.github.io/mithril-transition/example)**
 

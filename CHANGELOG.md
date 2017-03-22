@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [4.0.0] - 2017-03-22
 ### Added
 - new end-to-end tests
 
@@ -19,5 +21,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - Last release of the old mithril-transition!
 
-[unreleased]: https://github.com/geut/mithril-transition/compare/v3.1.0...HEAD
+[unreleased]: https://github.com/geut/mithril-transition/compare/v4.0.0...HEAD
+[4.0.0]: https://github.com/geut/mithril-transition/compare/v3.1.0...v4.0.0
 [3.1.0]: https://github.com/geut/mithril-transition/compare/v3.0.0...v3.1.0

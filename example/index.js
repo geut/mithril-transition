@@ -1,11 +1,15 @@
 const m = require('mithril');
-const PageOne = require('./components/page-one.js');
-const PageTwo = require('./components/page-two.js');
-const PageThree = require('./components/page-three.js');
+const pages = [
+    require('./components/pages/one.js'),
+    require('./components/pages/two.js'),
+    require('./components/pages/three.js')
+];
 
-m.route(document.body, '/pageOne', {
-    '/pageOne': PageOne,
-    '/pageTwo': PageTwo,
-    '/pageThree': PageThree
+m.route(document.body, '/page/1', {
+    '/page/:page': {
+        onmatch(args) {
+            return pages[args.page - 1];
+        }
+    }
 });
 

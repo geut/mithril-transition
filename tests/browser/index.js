@@ -1,21 +1,21 @@
 import { Selector as selector } from 'testcafe';
 
 fixture `Started`
-    .page `${process.env.URL || 'https://geut.github.io/mithril-transition/example/#!/pageOne'}`;
+    .page `${process.env.URL || 'https://geut.github.io/mithril-transition/example/#!/page/1'}`;
 
 function gotoLastPage(t) {
     return t
-        .click(selector('#goto-page-two'))
+        .click(selector('#main-next'))
         .expect(selector('.navbar-brand').textContent).eql('Page Two', 'Title must be: Page Two')
-        .click(selector('#goto-page-three'))
+        .click(selector('#main-next'))
         .expect(selector('.navbar-brand').textContent).eql('Page Three', 'Title must be: Page Three');
 }
 
 function gobackToFirstPage(t) {
     return t
-        .click(selector('#back'))
+        .click(selector('#main-back'))
         .expect(selector('.navbar-brand').textContent).eql('Page Two', 'Title must be: Page Two')
-        .click(selector('#back'))
+        .click(selector('#main-back'))
         .expect(selector('.navbar-brand').textContent).eql('Page One', 'Title must be: Page One');
 }
 
@@ -31,9 +31,9 @@ test('should mithril-transition disabled when call the method disable()', async 
     await t
         .setTestSpeed(1)
         .click(selector('#switch'))
-        .click(selector('#goto-page-two'))
+        .click(selector('#main-next'))
         .expect(selector('.app').hasClass('m-transition-parent')).notOk()
         .click(selector('#switch'))
-        .click(selector('#goto-page-one'))
+        .click(selector('#main-back'))
         .expect(selector('.app').hasClass('m-transition-parent')).ok();
 });

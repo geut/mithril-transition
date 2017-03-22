@@ -70,10 +70,10 @@ Save the history in the sessionStorage identified by a key.
 Before that the transition begin, the library set a list of classes for each parent|element and remove it when the transition is finished.
 ```javascript
 default = {
-parent: 'm-transition-parent',
-        lastElem: 'm-transition-last-element',
-        newElem: 'm-transition-new-element',
-        direction: 'm-transition-<direction>'
+    parent: 'm-transition-parent',
+    lastElem: 'm-transition-last-element',
+    newElem: 'm-transition-next-element',
+    direction: 'm-transition-<direction>'
 }
 ```
 

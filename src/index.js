@@ -9,7 +9,7 @@ module.exports = function createTransition({
     classList = {
         parent: 'm-transition-parent',
         lastElm: 'm-transition-last-element',
-        nextElm: 'm-transition-new-element',
+        nextElm: 'm-transition-next-element',
         direction: 'm-transition-<direction>'
     },
     disable = function () {}

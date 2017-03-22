@@ -4,7 +4,6 @@
   "description": "A lightweight library for MithrilJS to create your own custom transitions based on the lifecycle of your components.",
   "main": "src/index.js",
   "devDependencies": {
-    "ava": "^0.18.2",
     "babili": "0.0.12",
     "browserify": "^14.1.0",
     "budo": "^9.4.7",
@@ -18,7 +17,7 @@
   "scripts": {
     "clean": "rm -rf dist && mkdir dist",
     "test": "npm run test:browser",
-    "test:browser": "testcafe \"saucelabs:Chrome@48.0:Linux\",\"saucelabs:Firefox@45.0:Linux\" tests/browser/index.js --speed 0.5",
+    "test:browser": "testcafe \"saucelabs:Chrome@56.0:Windows 10\",\"saucelabs:Firefox@51.0:Windows 10\" tests/browser/index.js --speed 0.5",
     "test:local-browser": "URL=http://localhost:4445 testcafe chrome,firefox --app \"npm run build:example && npm run example:serve\" --speed 0.5",
     "posttest": "eslint .",
     "build:example": "browserify example/index.js -o example/build.js",
@@ -29,8 +28,7 @@
     "example:serve": "http-server example -s -p 4445",
     "prepublish": "npm run build",
     "preversion": "npm run build",
-    "version": "chan release ${npm_package_version} && git add .",
-    "je": "testcafe -b saucelabs"
+    "version": "chan release ${npm_package_version} && git add ."
   },
   "eslintConfig": {
     "extends": "postcss",

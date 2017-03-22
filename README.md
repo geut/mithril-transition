@@ -24,16 +24,18 @@ Or you can use the UMD bundle
 
 **mithril-transition** is a function factory that return a ```config``` function for your vnode (where you want animate it) of mithril.
 
-Live examples:
-
-- [with VelocityJS](https://t.co/1psrMMUqkT)
-
-- [with pure CSS](https://jsfiddle.net/tinchoz49/ckounhoz)
+Check our live `[example](https://geut.github.io/mithril-transition/example)`
 
 ## Functions
 
 #### createTransition(options = {}) -> {transition}
 Factory function to create a new transition. The options are defined below.
+
+#### transition.oncreate(vnode)
+Function that you need hook up to the lifecycle of the vnode
+
+#### transition.onremove(vnode)
+Function that you need hook up to the lifecycle of the vnode
 
 #### transition.enable()
 Method to enable the animation. **By default is enabled.**
@@ -77,7 +79,7 @@ parent: 'm-transition-parent',
 
 ## On roadmap
 
-- Add tests
+- Add unit tests
 
 ## Credits
 

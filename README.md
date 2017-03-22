@@ -24,7 +24,7 @@ Or you can use the UMD bundle
 
 **mithril-transition** is a function factory that return a ```config``` function for your vnode (where you want animate it) of mithril.
 
-Check our live `[example](https://geut.github.io/mithril-transition/example)`
+Check our live **[example](https://geut.github.io/mithril-transition/example)**
 
 ## Functions
 

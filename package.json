@@ -27,7 +27,7 @@
     "example:test": "URL=http://localhost:4445 testcafe chrome,firefox --app \"npm run example:build && npm run example:serve\" --speed 0.5",
     "example:serve": "http-server example -s -p 4445",
     "prepublish": "npm run build",
-    "preversion": "npm run build && npm test",
+    "preversion": "npm run build",
     "version": "chan release ${npm_package_version} && git add ."
   },
   "eslintConfig": {

@@ -2,6 +2,8 @@
 [![Build Status](https://travis-ci.org/geut/mithril-transition.svg?branch=master)](https://travis-ci.org/geut/mithril-transition)
 > A lightweight library for MithrilJS to create your own custom transitions based on the lifecycle of your components.
 
+![mithril-transition](https://cloud.githubusercontent.com/assets/819446/24215837/d6593170-0f18-11e7-8458-ccffbb1ce18b.gif)
+
 **NOTE:** This package was updated for the rewrite of Mithril, if you are looking
 for the old and unmaintained package can be found it
 [here](https://github.com/geut/mithril-transition/tree/v0.2)

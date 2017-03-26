@@ -17,7 +17,8 @@
   "scripts": {
     "clean": "rm -rf dist && mkdir dist",
     "test": "npm run test:browser",
-    "test:browser": "export $(cat .env | xargs) && testcafe \"saucelabs:Chrome@56.0:Windows 10\",\"saucelabs:Firefox@51.0:Windows 10\" tests/browser/index.js --speed 0.5",
+    "test:browser": "testcafe \"saucelabs:Chrome@56.0:Windows 10\",\"saucelabs:Firefox@51.0:Windows 10\" tests/browser/index.js --speed 0.5",
+    "test:local": "export $(cat .env | xargs) && npm run test:browser",
     "posttest": "eslint .",
     "build:assets": "cp src/index.css dist/index.css",
     "build:standalone": "browserify --standalone mithrilTransition src/index.js -o dist/mithril-transition.js && babili dist/mithril-transition.js -o dist/mithril-transition.min.js --source-maps",
